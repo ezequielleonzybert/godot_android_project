@@ -1,0 +1,87 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtcgpuqdard02"]
+
+[ext_resource type="Script" path="res://src/gui.gd" id="1_5oqyj"]
+
+[node name="GUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5oqyj")
+
+[node name="Unpause" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ButtonsContainer" type="HBoxContainer" parent="Unpause"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.9
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 705
+
+[node name="BtnAim" type="Button" parent="Unpause/ButtonsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Aim"
+
+[node name="BtnShot" type="Button" parent="Unpause/ButtonsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Shot"
+
+[node name="Pause" type="Control" parent="."]
+process_mode = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="PauseBakcground" type="ColorRect" parent="Pause"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.498039)
+metadata/_edit_lock_ = true
+
+[node name="BtnLeaveStage" type="Button" parent="Pause"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 120.0
+offset_bottom = 120.0
+text = "Leave"
+
+[node name="BtnPause" type="Button" parent="."]
+process_mode = 3
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -120.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = 120.0
+grow_horizontal = 0
+size_flags_horizontal = 3
+text = "Pause"
+
+[connection signal="pressed" from="Pause/BtnLeaveStage" to="." method="_on_btn_leave_stage_pressed"]
+[connection signal="pressed" from="BtnPause" to="." method="_on_btn_pause_pressed"]
