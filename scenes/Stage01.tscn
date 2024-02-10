@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://c2id2msexdri8"]
+[gd_scene load_steps=4 format=3 uid="uid://c2id2msexdri8"]
 
+[ext_resource type="Script" path="res://scenes/camera.gd" id="2_5rhyy"]
 [ext_resource type="Script" path="res://src/stage.gd" id="2_hemjw"]
 [ext_resource type="PackedScene" uid="uid://dtcgpuqdard02" path="res://scenes/GUI.tscn" id="2_rqs44"]
 
@@ -8,4 +9,9 @@
 [node name="Stage" type="Node2D" parent="."]
 script = ExtResource("2_hemjw")
 
-[node name="GUI" parent="." instance=ExtResource("2_rqs44")]
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("2_5rhyy")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GUI" parent="CanvasLayer" instance=ExtResource("2_rqs44")]
